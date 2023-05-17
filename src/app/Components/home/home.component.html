@@ -1,0 +1,100 @@
+<mat-card class="card" >
+  <mat-dialog-content>
+
+  <table class="example-full-width" cellspacing="0"><tr>
+    <td><mat-form-field class="example-full-width">
+      <mat-label>First name</mat-label>
+      <input matInput  fristName [(ngModel)]="frName">
+    </mat-form-field></td>
+    <td><mat-form-field class="example-full-width">
+      <mat-label>Long Last Name That Will Be Truncated</mat-label>
+      <input  matInput lastName [(ngModel)]="lsName">
+    </mat-form-field></td>
+  </tr>
+  <tr>
+    <td>
+      <h4>Choose Your City</h4>
+      <mat-form-field appearance="fill">
+        <mat-label>Your City</mat-label>
+        <select matNativeControl [(ngModel)]="selectedCty" name="car">
+          <option value="" selected></option>
+          <option *ngFor="let Cty of City" [value]="Cty.value">
+            {{Cty.viewValue}}
+          </option>
+        </select>
+      </mat-form-field>
+    </td>
+    <td><mat-form-field class="example-full-width">
+      <mat-label>Street Name</mat-label>
+      <input matInput  streetName [(ngModel)]="strName">
+    </mat-form-field></td>
+  </tr>
+  <tr>
+    <td>
+      <mat-form-field appearance="fill">
+        <mat-label>Choose a date</mat-label>
+        <input matInput [matDatepicker]="picker" [(ngModel)]="age">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field> 
+    </td> 
+       <td>
+        <label id="example-radio-group-label">Choose Your Gender</label>
+        <mat-radio-group
+        aria-labelledby="example-radio-group-label"
+        class="example-radio-group"
+        [(ngModel)]="Gender">
+        <mat-radio-button class="example-radio-button" *ngFor="let season of seasons" [value]="season">
+        {{season}}
+        </mat-radio-button>
+        </mat-radio-group>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <h4>Choose Your Religion</h4>
+      <mat-form-field appearance="fill">
+        <mat-label>Your Religion</mat-label>
+        <select matNativeControl [(ngModel)]="selectedRlg" name="car">
+          <option value="" selected></option>
+          <option *ngFor="let Rlg of Religion" [value]="Rlg.value">
+            {{Rlg.viewValue}}
+          </option>
+        </select>
+      </mat-form-field>
+    </td>
+  </tr>
+</table>
+
+</mat-dialog-content>
+</mat-card>
+
+<mat-divider></mat-divider>
+<mat-divider></mat-divider>
+<mat-card>
+  <mat-card-content>
+    <table class="card">
+   <tr>
+    <td>
+     Name:{{frName}} {{lsName}}
+    </td>
+</tr>
+<tr>
+  <td>
+    Addres: {{selectedCty}}
+  </td>
+  <td>
+    Street: {{strName}}
+  </td>
+</tr>
+<tr><td> 
+  BirthDate:{{age}}</td>
+  <td> Your Gender is: {{Gender}} </td>
+</tr>
+<tr><td> 
+  Religion:{{selectedRlg}}</td>
+</tr>
+  </table>
+  </mat-card-content>
+</mat-card>
